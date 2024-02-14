@@ -11,7 +11,6 @@ source:
 
 build:
   number: 0
-  script: build.sh  # [not win]
 
 requirements:
   build:
@@ -20,11 +19,11 @@ requirements:
     - ninja
 
 about:
-  home: http://p12tic.github.io/libsimdpp/doc/html/
+  home: https://p12tic.github.io/libsimdpp/doc/html/
   dev_url: https://github.com/hail-is/hail
   license: BSL-1.0
   license_file: LICENSE_1_0.txt
-  license_family: BSL
+  license_family: OTHER
   summary: |
     Hail is Python-based data analysis tool for working with genomic data.
   description: |
@@ -32,5 +31,5 @@ about:
     via single interface. The same source code may be compiled for different instruction sets and linked to the same
     resulting binary. The library provides a convenient dynamic dispatch mechanism to select the fastest version of a
     function for the target processor.
-  doc_url: http://p12tic.github.io/libsimdpp/doc/html/
+  doc_url: https://p12tic.github.io/libsimdpp/v{{ version }}/libsimdpp/w/
   dev_url: https://github.com/p12tic/libsimdpp
