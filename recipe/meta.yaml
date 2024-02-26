@@ -21,21 +21,13 @@ requirements:
     - cmake
     - ninja
 
-test:
-  requires:
-    - pip
-  commands:
-    - pip check
-    # unix/win test in run_test.[sh,bat]
-
 about:
   home: https://p12tic.github.io/libsimdpp/doc/html/
-  dev_url: https://github.com/hail-is/hail
   license: BSL-1.0
   license_file: LICENSE_1_0.txt
   license_family: OTHER
   summary: |
-    Hail is Python-based data analysis tool for working with genomic data.
+    libsimdpp is a header-only zero-overhead C++ wrapper around SIMD intrinsics.
   description: |
     libsimdpp is a header-only zero-overhead C++ wrapper around SIMD intrinsics. It supports multiple instruction sets
     via single interface. The same source code may be compiled for different instruction sets and linked to the same
