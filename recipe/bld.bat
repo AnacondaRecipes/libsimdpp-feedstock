@@ -6,7 +6,7 @@ cmake . -B build -G"Ninja" %CMAKE_ARGS%      ^
 if errorlevel 1 exit 1
 
 :: Build.
-cmake --build build -j %CPU_COUNT% --config Release
+cmake --build build -j %CPU_COUNT%
 if errorlevel 1 exit 1
 
 :: Install.

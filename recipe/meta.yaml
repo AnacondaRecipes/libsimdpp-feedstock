@@ -11,15 +11,25 @@ source:
 
 build:
   number: 0
-  script_env:
-    # used in run_test.[sh,bat]
-    - LIBSIMDPP_NAME_VERSION={{ name }}-{{ version }}
 
 requirements:
   build:
     - {{ compiler('cxx') }}
     - cmake
     - ninja
+
+test:
+  commands:
+    # Unix tests
+    - test -e $PREFIX/lib/pkgconfig/{{ name }}-{{ version }}.pc                    # [unix]
+    - test -e $PREFIX/include/{{ name }}-{{ version }}/simdpp/capabilities.h       # [unix]
+    - test -e $PREFIX/include/{{ name }}-{{ version }}/simdpp/detail/insn/blend.h  # [unix]
+    - test -e $PREFIX/include/{{ name }}-{{ version }}/simdpp/types/traits.h       # [unix]
+    # Windows tests    
+    - if not exist %PREFIX%\Library\lib\pkgconfig\{{ name }}-{{ version }}.pc exit 1                    # [win]
+    - if not exist %PREFIX%\Library\include\{{ name }}-{{ version }}\simdpp\capabilities.h exit 1       # [win]
+    - if not exist %PREFIX%\Library\include\{{ name }}-{{ version }}\simdpp\detail\expr\blend.h exit 1  # [win]
+    - if not exist %PREFIX%\Library\include\{{ name }}-{{ version }}\simdpp\types\traits.h exit 1       # [win]
 
 about:
   home: https://p12tic.github.io/libsimdpp/doc/html/
