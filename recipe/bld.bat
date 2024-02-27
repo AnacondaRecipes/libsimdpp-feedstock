@@ -10,5 +10,5 @@ cmake --build build -j %CPU_COUNT%
 if errorlevel 1 exit 1
 
 :: Install.
-cmake --install .\build --config Release
+cmake --install .\build
 if errorlevel 1 exit 1
