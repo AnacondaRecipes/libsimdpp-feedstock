@@ -1,0 +1,47 @@
+{% set name = "libsimdpp" %}
+{% set version = "2.1" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/p12tic/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: b0e986b20bef77cd17004dd02db0c1ad9fab9c70d4e99594a9db1ee6a345be93
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler('cxx') }}
+    - cmake
+    - ninja
+
+test:
+  commands:
+    # Unix tests
+    - test -e $PREFIX/lib/pkgconfig/{{ name }}-{{ version }}.pc                    # [unix]
+    - test -e $PREFIX/include/{{ name }}-{{ version }}/simdpp/capabilities.h       # [unix]
+    - test -e $PREFIX/include/{{ name }}-{{ version }}/simdpp/detail/insn/blend.h  # [unix]
+    - test -e $PREFIX/include/{{ name }}-{{ version }}/simdpp/types/traits.h       # [unix]
+    # Windows tests    
+    - if not exist %PREFIX%\Library\lib\pkgconfig\{{ name }}-{{ version }}.pc exit 1                    # [win]
+    - if not exist %PREFIX%\Library\include\{{ name }}-{{ version }}\simdpp\capabilities.h exit 1       # [win]
+    - if not exist %PREFIX%\Library\include\{{ name }}-{{ version }}\simdpp\detail\expr\blend.h exit 1  # [win]
+    - if not exist %PREFIX%\Library\include\{{ name }}-{{ version }}\simdpp\types\traits.h exit 1       # [win]
+
+about:
+  home: https://p12tic.github.io/libsimdpp/doc/html/
+  license: BSL-1.0
+  license_file: LICENSE_1_0.txt
+  license_family: OTHER
+  summary: |
+    libsimdpp is a header-only zero-overhead C++ wrapper around SIMD intrinsics.
+  description: |
+    libsimdpp is a header-only zero-overhead C++ wrapper around SIMD intrinsics. It supports multiple instruction sets
+    via single interface. The same source code may be compiled for different instruction sets and linked to the same
+    resulting binary. The library provides a convenient dynamic dispatch mechanism to select the fastest version of a
+    function for the target processor.
+  doc_url: https://p12tic.github.io/libsimdpp/v{{ version }}/libsimdpp/w/
+  dev_url: https://github.com/p12tic/libsimdpp
