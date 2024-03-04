@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/p12tic/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
   sha256: b0e986b20bef77cd17004dd02db0c1ad9fab9c70d4e99594a9db1ee6a345be93
+  patches:
+    - patches/0001-install-hpp-files.patch
 
 build:
   number: 0
@@ -25,11 +27,13 @@ test:
     - test -e $PREFIX/include/{{ name }}-{{ version }}/simdpp/capabilities.h       # [unix]
     - test -e $PREFIX/include/{{ name }}-{{ version }}/simdpp/detail/insn/blend.h  # [unix]
     - test -e $PREFIX/include/{{ name }}-{{ version }}/simdpp/types/traits.h       # [unix]
+    - test -e $PREFIX/include/{{ name }}-{{ version }}/simdpp/detail/preprocessor/stringize.hpp  # [unix]
     # Windows tests    
     - if not exist %PREFIX%\Library\lib\pkgconfig\{{ name }}-{{ version }}.pc exit 1                    # [win]
     - if not exist %PREFIX%\Library\include\{{ name }}-{{ version }}\simdpp\capabilities.h exit 1       # [win]
     - if not exist %PREFIX%\Library\include\{{ name }}-{{ version }}\simdpp\detail\expr\blend.h exit 1  # [win]
     - if not exist %PREFIX%\Library\include\{{ name }}-{{ version }}\simdpp\types\traits.h exit 1       # [win]
+    - if not exist %PREFIX%\Library\include\{{ name }}-{{ version }}\simdpp\detail\preprocessor\stringize.hpp exit 1  # [win]
 
 about:
   home: https://p12tic.github.io/libsimdpp/doc/html/
