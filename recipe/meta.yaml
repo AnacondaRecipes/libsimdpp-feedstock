@@ -19,6 +19,8 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - ninja
+    - patch   # [not win]
+    - m2-patch  # [win]
 
 test:
   commands:
