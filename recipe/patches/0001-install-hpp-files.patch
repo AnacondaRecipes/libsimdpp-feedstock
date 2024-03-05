@@ -1,0 +1,22 @@
+From e71d2ca2d445db627308167cd551d4934af5f4af Mon Sep 17 00:00:00 2001
+From: Yuri <yuri@rawbw.com>
+Date: Mon, 29 Oct 2018 21:50:56 -0700
+Subject: [PATCH] Install *.hpp files
+
+---
+ simdpp/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/simdpp/CMakeLists.txt b/simdpp/CMakeLists.txt
+index 19d6011b..758ec7c1 100644
+--- a/simdpp/CMakeLists.txt
++++ b/simdpp/CMakeLists.txt
+@@ -4,7 +4,7 @@
+ #       (See accompanying file LICENSE_1_0.txt or copy at
+ #           http://www.boost.org/LICENSE_1_0.txt)
+ 
+-file(GLOB_RECURSE HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.h *.inl)
++file(GLOB_RECURSE HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.h *.inl *.hpp)
+ 
+ foreach(FILE ${HEADERS})
+     get_filename_component(FILE_PATH "${FILE}" PATH)
