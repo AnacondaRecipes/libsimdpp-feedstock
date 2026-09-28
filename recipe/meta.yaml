@@ -12,15 +12,14 @@ source:
     - patches/0001-install-hpp-files.patch
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
     - cmake
     - ninja
-    - patch   # [not win]
-    - m2-patch  # [win]
 
 test:
   commands:
