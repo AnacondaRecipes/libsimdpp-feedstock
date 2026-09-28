@@ -1,3 +1,4 @@
+set CMAKE_POLICY_VERSION_MINIMUM=3.5
 :: Generate the build files.
 cmake . -B build -G"Ninja" %CMAKE_ARGS%      ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%  ^
